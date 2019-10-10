@@ -17,6 +17,9 @@ public class MainApplication {
 	public static void Get2(){
 
 	}
+	public static void Get3(){
+
+	}
 
 
 }
