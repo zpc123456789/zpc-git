@@ -1,4 +1,4 @@
-package com.atguigu.springboot.helloworld;
+﻿package com.atguigu.springboot.helloworld;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +14,10 @@ public class MainApplication {
 	public static void Get(){
 
 	}
+	public static void Get2(){
+
+	}
+
 
 }
 
