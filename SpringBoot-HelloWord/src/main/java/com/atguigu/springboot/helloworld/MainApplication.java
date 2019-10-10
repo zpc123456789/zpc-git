@@ -11,6 +11,9 @@ public class MainApplication {
 		  SpringApplication.run(MainApplication.class, args);
 		
 	}
+	public static void Get(){
+
+	}
 
 }
 
