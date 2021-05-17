@@ -248,3 +248,50 @@ get future at:1568892339473, result: world!
 get future at:1568892339473, result: hello
 get future at:1568892339473, result:java!
 几乎同时完成任务！
+
+
+
+        ExecutorService executorService = new ThreadPoolExecutor(
+                2,
+                5,
+                2L,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(3),//堆内存溢出
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.DiscardPolicy());
+
+        try
+        {
+            for (int i = 1; i <=10; i++)//模拟n个客户来银行办理业务，提交请求。customer
+            {
+                executorService.execute(() -> {
+                    System.out.println(Thread.currentThread().getName()+"\t 办理业务"+new Random().nextInt(10));
+                });
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            executorService.shutdown();
+        }
+
+
+
+        /*ExecutorService executorService = Executors.newFixedThreadPool(5);//一池5线程
+        ExecutorService executorService = Executors.newSingleThreadExecutor();//一池1线程
+        ExecutorService executorService = Executors.newCachedThreadPool();//一池N线程
+
+        try
+        {
+            for (int i = 1; i <=20; i++)//模拟20个客户来银行办理业务，提交请求。customer
+            {
+                executorService.execute(() -> {
+                    System.out.println(Thread.currentThread().getName()+"\t 办理业务"+new Random().nextInt(10));
+                });
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            executorService.shutdown();
+        }*/
+
+    }
